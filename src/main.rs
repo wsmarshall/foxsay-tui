@@ -35,6 +35,29 @@ fn itput_step(siv: &mut Cursive) {
     );
 }
 
+fn result_step(siv: &mut Cursive, options: &FoxsayOptions) {
+    let eye = if options.dead { "x" } else { "o" };
+
+    let fox_text = format!(
+        "{msg}
+    \\
+     \\
+       /\\_/\\
+      (  {eye}  {eye}  )
+      =( I )=",
+        msg = options.message,
+        eye = eye
+    );
+
+    siv.pop_layer(); //3
+    siv.add_layer(
+        //4
+        Dialog::text(fox_text)
+            .title("The fox says...")
+            .button("OK", |k| k.quit()),
+    );
+}
+
 fn main() {
     let mut siv = cursive::default(); //creates a Cursive root object
 
