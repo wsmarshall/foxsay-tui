@@ -30,7 +30,7 @@ fn itput_step(siv: &mut Cursive) {
                     message: &message,
                     dead: is_dead,
                 };
-                result_step(k, &options)
+                result_step(k, &options) //2
             }),
     );
 }
@@ -61,16 +61,7 @@ fn result_step(siv: &mut Cursive, options: &FoxsayOptions) {
 fn main() {
     let mut siv = cursive::default(); //creates a Cursive root object
 
-    let fox_text = "Meow!
-    \\
-     \\
-       /\\_/\\
-      ( o  o  )
-      =(  I  )=";
-
-    //declare app layout - holds fox ASCII art, has to be added as layer to be visible in main program
-    siv.add_layer(Dialog::text(fox_text).button("OK", |k| k.quit())); // Listen for escape key press, which exist program
-                                                                      //two args, events and callback fn
+    itput_step(&mut siv); //1
 
     siv.run(); //starts main event loop
 }
