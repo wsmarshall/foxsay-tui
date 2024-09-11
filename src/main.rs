@@ -10,7 +10,7 @@ struct FoxsayOptions<'a> {
     dead: bool,
 }
 
-fn itput_step(siv: &mut Cursive) {
+fn input_step(siv: &mut Cursive) {
     siv.add_layer(
         Dialog::new()
             .title("Please fill out the form for the fox")
@@ -61,7 +61,7 @@ fn result_step(siv: &mut Cursive, options: &FoxsayOptions) {
 fn main() {
     let mut siv = cursive::default(); //creates a Cursive root object
 
-    itput_step(&mut siv); //1
+    input_step(&mut siv); //1
 
     siv.run(); //starts main event loop
 }
