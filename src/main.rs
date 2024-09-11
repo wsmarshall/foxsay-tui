@@ -10,6 +10,7 @@ struct FoxsayOptions<'a> {
     dead: bool,
 }
 
+//sets up layout for the form as well as callback fns
 fn input_step(siv: &mut Cursive) {
     siv.add_layer(
         Dialog::new()
@@ -35,6 +36,7 @@ fn input_step(siv: &mut Cursive) {
     );
 }
 
+//hides form, shows fox and dialog after "OK" clicked
 fn result_step(siv: &mut Cursive, options: &FoxsayOptions) {
     let eye = if options.dead { "x" } else { "o" };
 
